@@ -22,7 +22,6 @@ codeingagent/
 │  ├─ prompts.py        # Prompt templates
 │  └─ states.py         # Pydantic state models
 ├─ .env                 # Environment variables
-├─ app.py               # (optional entry point, currently minimal)
 ├─ pyproject.toml       # Project metadata
 └─ README.md            # Documentation (this file)
 ```
