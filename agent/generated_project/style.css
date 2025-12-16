@@ -1,0 +1,126 @@
+/*
+  Responsive Calculator Stylesheet
+  Implements root variables, layout, and accessibility considerations.
+*/
+
+:root {
+  /* Colors */
+  --primary-bg: #f5f5f5;          /* Light gray background */
+  --primary-color: #222222;      /* Dark text for high contrast */
+  --accent-bg: #4caf50;          /* Green for operators / equals */
+  --accent-hover: #45a049;       /* Slightly darker on hover */
+  --button-bg: #e0e0e0;          /* Neutral button background */
+  --button-hover: #d5d5d5;       /* Hover state for neutral buttons */
+  --button-active: #c0c0c0;      /* Active press state */
+  --display-bg: #ffffff;        /* White display background */
+  --display-border: #cccccc;    /* Subtle border color */
+
+  /* Typography */
+  --font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --font-size-base: 1rem;        /* Base font size */
+  --font-size-display: 2rem;    /* Large display font */
+
+  /* Spacing */
+  --spacing: 0.5rem;
+}
+
+/* Global body styling – centers calculator and sets a clean font */
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-bg);
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  color: var(--primary-color);
+}
+
+/* Calculator container – fixed aspect ratio, centered */
+.calculator {
+  width: 100%;
+  max-width: 400px;               /* Reasonable max width for desktop */
+  aspect-ratio: 1 / 1.6;          /* Keeps layout proportional */
+  background: #ffffff;           /* White panel for contrast */
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: var(--spacing);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing);
+}
+
+/* Display – large, right‑aligned, readable */
+.display {
+  font-size: var(--font-size-display);
+  text-align: right;
+  padding: var(--spacing);
+  border: 2px solid var(--display-border);
+  border-radius: 0.4rem;
+  background: var(--display-bg);
+  color: var(--primary-color);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Buttons container – CSS Grid, 4 columns */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing);
+  flex-grow: 1;                 /* Take remaining vertical space */
+}
+
+/* Individual buttons – uniform appearance */
+.buttons button {
+  font-size: 1.2rem;
+  padding: var(--spacing);
+  background: var(--button-bg);
+  border: none;
+  border-radius: 0.4rem;
+  color: var(--primary-color);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.buttons button:hover,
+.buttons button:focus {
+  background: var(--button-hover);
+  outline: none;
+}
+
+.buttons button:active {
+  background: var(--button-active);
+  transform: scale(0.97);
+}
+
+/* Operator and equals buttons – accent colour for emphasis */
+.buttons button[data-action="operator"],
+.buttons button[data-action="equals"] {
+  background: var(--accent-bg);
+  color: #ffffff;
+}
+
+.buttons button[data-action="operator"]:hover,
+.buttons button[data-action="equals"]:hover {
+  background: var(--accent-hover);
+}
+
+/* Media query – adapt for small screens */
+@media (max-width: 600px) {
+  .calculator {
+    max-width: 100%;
+    padding: calc(var(--spacing) * 0.8);
+  }
+
+  .display {
+    font-size: 1.5rem;
+    padding: calc(var(--spacing) * 0.8);
+  }
+
+  .buttons button {
+    font-size: 1rem;
+    padding: calc(var(--spacing) * 0.6);
+  }
+}
