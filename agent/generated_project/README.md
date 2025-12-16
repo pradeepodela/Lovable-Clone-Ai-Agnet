@@ -66,7 +66,8 @@ To add more operations (e.g., exponentiation, modulo, or scientific functions):
 ---
 
 ## Screenshots
-> *[Insert screenshot of the calculator UI here]*
+<img width="1501" height="823" alt="image" src="https://github.com/user-attachments/assets/fc59121a-e768-448b-9c12-87c23818f2ca" />
+
 
 ---
 
