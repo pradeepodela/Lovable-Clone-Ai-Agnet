@@ -58,14 +58,10 @@ codeingagent/
 The primary entry point for the agent workflow is **`graph.py`**. To execute the example prompt defined in the file:
 
 ```bash
-python -m agent.graph
+python graph.py
 ```
 
-If you prefer to use the minimal `app.py` wrapper, you can run:
 
-```bash
-python app.py
-```
 
 Both commands will start the LangGraph agent and print the result of the sample user prompt.
 
